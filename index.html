@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">MOV-AAD</div>
@@ -27,7 +26,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <h1>MOV-AAD Dataset</h1>
@@ -39,7 +37,6 @@
         </div>
     </section>
 
-    <!-- Overview Section -->
     <section id="overview" class="section">
         <div class="container">
             <h2>Overview</h2>
@@ -54,12 +51,11 @@
                 </p>
             </div>
 
-            <!-- Add Figure Here -->
             <div class="content-box">
                 <figure class="dataset-figure">
-                    <img src="images/overview_stimuli.png" alt="Overview of the MOV-AAD dataset and experimental paradigm">
+                    <img src="images/Method_CameraReady.png" alt="Experimental methodology and multi-modal analysis pipeline for moving speakers">
                     <figcaption>
-                        <strong>Figure 1:</strong> Overview of the MOV-AAD dataset and experimental paradigm.
+                        <strong>Figure 1:</strong> Experimental methodology and multi-modal analysis pipeline. The diagram illustrates the dynamic spatial movement of conversational speech sources (±90° azimuth), the synchronization of 64-channel EEG with peripheral physiological modalities, the full experimental pipeline, and the stimuli description.
                     </figcaption>
                 </figure>
             </div>
@@ -71,7 +67,7 @@
                     <li>Synchronized multimodal physiological signals (eye tracking, respiration, GSR, PPG, SpO₂, temperature, motion)</li>
                     <li>Dynamic spatial movement of conversational speech sources (±90° azimuth)</li>
                     <li>Naturalistic conversational speech stimuli with behavioral attention tracking</li>
-                    <li>Over 4,800 trials with approximately 64 minutes per participant</li>
+                    <li>Over 4,800 trials with approximately 45 minutes of multi-conversation tasks recordings plus 30 minutes of single-conversation tasks recordings per participant</li>
                 </ul>
 
                 <h3>Applications</h3>
@@ -87,82 +83,126 @@
         </div>
     </section>
 
-    <!-- Dataset Description Section -->
     <section id="dataset" class="section section-gray">
         <div class="container">
             <h2>Dataset Description</h2>
             
             <div class="content-box">
                 <h3>Overview Statistics</h3>
-                <div class="stats-grid" id="statsGrid">
-                    <div class="stat-card">
-                        <div class="stat-number" data-stat="totalSamples">4,800</div>
-                        <div class="stat-label">Total Trials</div>
+                <div class="stats-grid" id="statsGrid" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 15px; width: 100%; overflow-x: auto;">
+                    
+                    <div class="stat-card" style="min-width: 0;">
+                        <div class="stat-number" data-stat="modalities">9</div>
+                        <div class="stat-label">Synchronized Modalities</div>
+                        <p style="font-size: 0.85rem; color: #666; margin-top: 5px; line-height: 1.3;">64-ch EEG, Gaze location, Pupil dilation, Respiration, GSR, PPG, SpO₂, Temperature, Motion</p>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-number" data-stat="duration">~64 min</div>
-                        <div class="stat-label">Duration/Subject</div>
+
+                    <div class="stat-card" style="min-width: 0;">
+                        <div class="stat-number" data-stat="samplingRate">1200 Hz</div>
+                        <div class="stat-label">Unified Sampling Rate</div>
+                        <p style="font-size: 0.85rem; color: #666; margin-top: 5px; line-height: 1.3;">Temporal alignment across all neural & physiological streams</p>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-number" data-stat="categories">2</div>
-                        <div class="stat-label">Task Types</div>
-                    </div>
-                    <div class="stat-card">
+
+                    <div class="stat-card" style="min-width: 0;">
                         <div class="stat-number" data-stat="participants">50</div>
                         <div class="stat-label">Participants</div>
+                        <p style="font-size: 0.85rem; color: #666; margin-top: 5px; line-height: 1.3;">Age 24 ± 4.5 years, verified normal hearing status</p>
                     </div>
+
+                    <div class="stat-card" style="min-width: 0;">
+                        <div class="stat-number" data-stat="duration">~ 75 min</div>
+                        <div class="stat-label">Duration per Subject</div>
+                        <p style="font-size: 0.85rem; color: #666; margin-top: 5px; line-height: 1.3;">Massive continuous recording for robust AAD modeling</p>
+                    </div>
+
+                    <div class="stat-card" style="min-width: 0;">
+                        <div class="stat-number" data-stat="tasks">4</div>
+                        <div class="stat-label">Experimental Tasks</div>
+                        <p style="font-size: 0.85rem; color: #666; margin-top: 5px; line-height: 1.3;">Repeated sentences, localization, single & multi-speaker conversations</p>
+                    </div>
+
+                    <div class="stat-card" style="min-width: 0;">
+                        <div class="stat-number" data-stat="behavioral">Rich</div>
+                        <div class="stat-label">Behavioral Tracking</div>
+                        <p style="font-size: 0.85rem; color: #666; margin-top: 5px; line-height: 1.3;">Active repeated-word detection & precise localization reports</p>
+                    </div>
+
                 </div>
             </div>
 
             <div class="content-box">
                 <h3>Data Composition</h3>
-                <p>
-                    The dataset consists of two experimental conditions per participant:
+                <p style="margin-bottom: 25px;">
+                    The dataset encompasses four distinct experimental tasks per participant, transition from structured sensory validation to ecologically valid, naturalistic listening scenarios:
                     <br><br>
-                    <strong>Single Moving Speaker (40 trials):</strong> Participants listened to conversational 
-                    narratives from a spatially moving source (-90° to +90°) with embedded repeated words for 
-                    attention monitoring. Mean trial duration: ~40s.
+                    <strong>1. Repeated Sentence Task:</strong> A baseline neural reliability check featuring shuffled short sentences repeated without background noise to evaluate within-subject response consistency.
                     <br><br>
-                    <strong>Multiple Moving Speakers (56 trials):</strong> Two independent conversational streams 
-                    presented simultaneously, both moving within the same azimuth range. Participants attended to 
-                    one stream while ignoring the other. Mean trial duration: 44.2s (SD=2.0s).
+                    <strong>2. Localization Task:</strong> A spatial perception task conducted prior to the main experiment to familiarize participants with spatial cues and assess their localization accuracy.
+                    <br><br>
+                    <strong>3. Single-Conversation Task:</strong> An active listening task where participants track naturalistic, continuous conversational narratives from a single dynamically moving sound source.
+                    <br><br>
+                    <strong>4. Multi-Conversation Task:</strong> A selective attention task requiring participants to attend to one target conversational stream while ignoring a competing co-spatial distractor.
                 </p>
                 
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Condition</th>
-                            <th>Trials/Subject</th>
-                            <th>Duration</th>
-                            <th>Percentage</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Single Moving Speaker</td>
-                            <td>40</td>
-                            <td>~40s/trial</td>
-                            <td>42%</td>
-                        </tr>
-                        <tr>
-                            <td>Multiple Moving Speakers</td>
-                            <td>56</td>
-                            <td>~44s/trial</td>
-                            <td>58%</td>
-                        </tr>
-                        <tr>
-                            <td>Localization Task</td>
-                            <td>54 sentences</td>
-                            <td>Short sentences</td>
-                            <td>-</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div style="overflow-x: auto;">
+                    <table class="data-table" style="width: 100%; border-collapse: collapse; min-width: 900px;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid var(--text-color, #333);">
+                                <th style="text-align: left; padding: 10px; width: 18%;">Task / Condition</th>
+                                <th style="text-align: left; padding: 10px; width: 18%;">Experimental Purpose</th>
+                                <th style="text-align: left; padding: 10px; width: 12%;">Stimuli & Speakers</th>
+                                <th style="text-align: left; padding: 10px; width: 13%;">Spatial Configuration</th>
+                                <th style="text-align: left; padding: 10px; width: 13%;">Background Noise</th>
+                                <th style="text-align: center; padding: 10px; width: 12%;">Total Stimuli / Duration</th>
+                                <th style="text-align: left; padding: 10px; width: 14%;">Available Modalities</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #eee; vertical-align: top;">
+                                <td style="padding: 12px 10px;"><strong>Repeated Sentence Task</strong></td>
+                                <td style="padding: 12px 10px; font-size: 0.9rem; color: #555;">Split-half & odd-even reliability check for neural responses.</td>
+                                <td style="padding: 12px 10px; font-size: 0.9rem;">6 short sentences (shuffled order); 3 male & 3 female talkers.</td>
+                                <td style="padding: 12px 10px; font-size: 0.9rem; color: #666;">Diotic presentation (None)</td>
+                                <td style="padding: 12px 10px; font-size: 0.9rem; color: #666;">None</td>
+                                <td style="padding: 12px 10px; text-align: center; font-size: 0.9rem;">120 trials<br><small style="color:#777;">(~12 min)</small></td>
+                                <td style="padding: 12px 10px; font-size: 0.85rem;"><span style="color: #2b7a78; font-weight: 500;">✓ EEG & Physio</span><br><span style="color: #2b7a78; font-weight: 500;">✓ Behavioral</span></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee; vertical-align: top;">
+                                <td style="padding: 12px 10px;"><strong>Localization Task</strong></td>
+                                <td style="padding: 12px 10px; font-size: 0.9rem; color: #555;">Familiarize spatial cues & assess baseline spatial perception.</td>
+                                <td style="padding: 12px 10px; font-size: 0.9rem;">Independent short sentences; Single talker per trial.</td>
+                                <td style="padding: 12px 10px; font-size: 0.9rem;">Static; 9 coordinates (-90° to +90° in 22.5° steps).</td>
+                                <td style="padding: 12px 10px; font-size: 0.9rem; color: #666;">None</td>
+                                <td style="padding: 12px 10px; text-align: center; font-size: 0.9rem;">54 sentences<br><small style="color:#777;">(Short segments)</small></td>
+                                <td style="padding: 12px 10px; font-size: 0.85rem;"><span style="color: #666;">- No Neural</span><br><span style="color: #2b7a78; font-weight: 500;">✓ Behavior Metrics</span></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee; vertical-align: top;">
+                                <td style="padding: 12px 10px;"><strong>Single-Conversation Task</strong></td>
+                                <td style="padding: 12px 10px; font-size: 0.9rem; color: #555;">Track neural tracking of speech with dynamic spatial change.</td>
+                                <td style="padding: 12px 10px; font-size: 0.9rem;">Continuous dialogue context; Multi-turn talkers.</td>
+                                <td style="padding: 12px 10px; font-size: 0.9rem;">HRTF-based dynamic moving (-90° to +90°); RMS-matched.</td>
+                                <td style="padding: 12px 10px; font-size: 0.9rem;">Diotic pedestrian/babble noise (-9, -12 dB)</td>
+                                <td style="padding: 12px 10px; text-align: center; font-size: 0.9rem;">40 trials<br><small style="color:#777;">(~30 min)</small></td>
+                                <td style="padding: 12px 10px; font-size: 0.85rem;"><span style="color: #2b7a78; font-weight: 500;">✓ EEG & Physio</span><br><span style="color: #2b7a78; font-weight: 500;">✓ Behavior & Audio</span></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee; vertical-align: top;">
+                                <td style="padding: 12px 10px;"><strong>Multi-Conversation Task</strong></td>
+                                <td style="padding: 12px 10px; font-size: 0.9rem; color: #555;">Evaluate selective Auditory Attention Decoding (AAD).</td>
+                                <td style="padding: 12px 10px; font-size: 0.9rem;">Two parallel stories with continuous context & turn-taking.</td>
+                                <td style="padding: 12px 10px; font-size: 0.9rem;">Two independent HRTF sources moving dynamically within ±90°.</td>
+                                <td style="padding: 12px 10px; font-size: 0.9rem;">Diotic pedestrian/babble noise (-9, -12 dB)</td>
+                                <td style="padding: 12px 10px; text-align: center; font-size: 0.9rem;">56 trials<br><small style="color:#777;">(~45 min)</small></td>
+                                <td style="padding: 12px 10px; font-size: 0.85rem;"><span style="color: #2b7a78; font-weight: 500;">✓ EEG & Physio</span><br><span style="color: #2b7a78; font-weight: 500;">✓ Behavior & Audio</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
-            <div class="content-box">
+
+           <div class="content-box">
                 <h3>Recording Modalities</h3>
-                <p>All signals recorded at 1200 Hz with synchronized temporal alignment:</p>
+                <p>All signals were synchronously recorded and streamed through g.tec HIamp and Simulink GUI at 1200 Hz, applied with 60 Hz notch filter:</p>
                 <table class="data-table">
                     <thead>
                         <tr>
@@ -178,14 +218,24 @@
                             <td>High-density neural recordings (g.tec g.HIamp)</td>
                         </tr>
                         <tr>
-                            <td>Eye Tracking</td>
-                            <td>Binocular, 1200 Hz</td>
-                            <td>Pupil dilation and gaze location (Tobii Pro Nano)</td>
+                            <td>Pupil Dilation</td>
+                            <td>Binocular, 60 Hz (Unified to 1200 Hz)</td>
+                            <td>Pupil diameter measurements (Tobii Pro Nano)</td>
                         </tr>
                         <tr>
-                            <td>Respiration</td>
-                            <td>Flow & Effort, 1200 Hz</td>
-                            <td>Nasal airflow and thoracic belt</td>
+                            <td>Gaze Location</td>
+                            <td>X and Y axes, 60 Hz (Unified to 1200 Hz)</td>
+                            <td>Screen-coordinate gaze tracking mapped to screen size (Tobii Pro Nano)</td>
+                        </tr>
+                        <tr>
+                            <td>Respiration Flow</td>
+                            <td>1200 Hz</td>
+                            <td>Nasal airflow monitoring</td>
+                        </tr>
+                        <tr>
+                            <td>Respiration Effort</td>
+                            <td>1200 Hz</td>
+                            <td>Thoracic expansion belt tracking</td>
                         </tr>
                         <tr>
                             <td>GSR</td>
@@ -193,9 +243,14 @@
                             <td>Galvanic skin response</td>
                         </tr>
                         <tr>
-                            <td>PPG/Heart Rate</td>
+                            <td>PPG</td>
                             <td>1200 Hz</td>
-                            <td>Photoplethysmography and derived HR</td>
+                            <td>Photoplethysmography raw optical signal</td>
+                        </tr>
+                        <tr>
+                            <td>Heart Rate</td>
+                            <td>1200 Hz</td>
+                            <td>Derived beat-by-beat heart rate from PPG</td>
                         </tr>
                         <tr>
                             <td>SpO₂</td>
@@ -230,7 +285,6 @@
         </div>
     </section>
 
-    <!-- Data Structure & Download Section -->
     <section id="download" class="section">
         <div class="container">
             <h2>Data Structure & Download</h2>
@@ -310,16 +364,10 @@ unzip MOV-AAD-dataset.zip</code></pre>
                 </ul>
             </div>
 
-            <div class="content-box">
-                <h3>License</h3>
-                <p>
-                    License information will be specified upon dataset release.
-                </p>
-            </div>
+            
         </div>
     </section>
 
-    <!-- Baseline Section -->
     <section id="baseline" class="section section-gray">
         <div class="container">
             <h2>Baseline Results</h2>
@@ -339,6 +387,27 @@ unzip MOV-AAD-dataset.zip</code></pre>
                     <li><strong>Intersubject Correlation (ISC):</strong> Correlated component analysis across participants for stimulus-locked responses</li>
                 </ul>
             </div>
-
         </div>
     </section>
+
+    <section id="citation" class="section">
+        <div class="container">
+            <h2>Citation</h2>
+            <div class="content-box">
+                <p>If you use the MOV-AAD dataset or baseline models in your research, please cite our paper:</p>
+                <pre class="code-block"><code>@article{mov_aad_2026,
+  title={MOV-AAD: A Large-Scale Multimodal Dataset for Auditory Attention During Moving Conversations},
+  author={LastName, FirstName and Collaborator, Gavin and JointAuthor, Author},
+  journal={arXiv preprint arXiv:XXXX.XXXXX},
+  year={2026}
+}</code></pre>
+                <div style="margin-top: 15px;">
+                    <a href="https://scholar.google.com" target="_blank" class="btn btn-secondary" style="font-size: 0.9rem; padding: 8px 16px;">
+                        🔎 View on Google Scholar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
