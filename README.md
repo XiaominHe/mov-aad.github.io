@@ -124,7 +124,7 @@ md5sum -c checksums.txt
 # Extract dataset into the root directory
 unzip MOV-AAD-dataset.zip -d ./data/
 
----
+```
 
 ## 📜 Citation
 
